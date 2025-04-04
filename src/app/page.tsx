@@ -9,7 +9,7 @@ export default function App() {
   const router = useRouter()
   const handleSearch = (query: string) => {
     router.push(`/results?query=${encodeURIComponent(query)}`);
-    console.log('Searching for:', query);
+    console.log('Searching:', query);
     // Add your search logic here
   };
 
