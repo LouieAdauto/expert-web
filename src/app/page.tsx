@@ -14,10 +14,11 @@ export default function App() {
   };
 
   return <div>
-    <Toolbar></Toolbar>
-    <Logo fontSize={50}></Logo>
-    <SearchBar 
-      onSearch={handleSearch}
-    />
+      <Toolbar />
+      <Logo
+        fontSize={50} />
+      <SearchBar
+        onSearch={handleSearch}
+      />
   </div>
 }
