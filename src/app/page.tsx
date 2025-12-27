@@ -13,12 +13,15 @@ export default function App() {
     // Add your search logic here
   };
 
-  return <div>
-      <Toolbar />
+  return <div className='searchpage'>
+      
+      <div className='overlay'>
+        <Toolbar />
       <Logo
         fontSize={50} />
       <SearchBar
         onSearch={handleSearch}
       />
+      </div>
   </div>
 }
