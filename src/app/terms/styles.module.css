@@ -1,0 +1,272 @@
+/* components/terms/TermsAndConditions.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ea9343;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.lastUpdated {
+  color: #65676b;
+  font-size: 0.9rem;
+}
+
+.alert {
+  background-color: #f0f8ff;
+  border-left: 4px solid #1877f2;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.alertIcon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.tocContainer {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tocTitle {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: #1c1e21;
+}
+
+.tocList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+}
+
+.tocItem {
+  margin-bottom: 4px;
+}
+
+.tocLink {
+  background: none;
+  border: none;
+  color: #1877f2;
+  text-align: left;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.tocLink:hover {
+  background-color: rgba(24, 119, 242, 0.1);
+  text-decoration: underline;
+}
+
+.termsContent {
+  margin-bottom: 40px;
+}
+
+.termSection {
+  margin-bottom: 24px;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  background-color: #f5f6f7;
+  margin: 0;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #1c1e21;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.sectionTitle:hover {
+  background-color: #ebedf0;
+}
+
+.toggleIcon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionContent {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.sectionContent.expanded {
+  padding: 20px;
+  max-height: 500px;
+}
+
+.acceptanceSection {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 28px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.checkbox {
+  margin-right: 12px;
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  accent-color: #1877f2;
+}
+
+.checkboxLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.acceptButton {
+  width: 100%;
+  padding: 16px;
+  background-color: #e4e6eb;
+  color: #bcc0c4;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  transition: background-color 0.2s, color 0.2s;
+  margin-bottom: 16px;
+}
+
+.acceptButton.enabled {
+  background-color: #1877f2;
+  color: white;
+  cursor: pointer;
+}
+
+.acceptButton.enabled:hover {
+  background-color: #166fe5;
+}
+
+.legalNote {
+  font-size: 0.85rem;
+  color: #65676b;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  color: #65676b;
+  font-size: 0.9rem;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.footerLinks a {
+  color: #1877f2;
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .tocList {
+    grid-template-columns: 1fr;
+  }
+
+  .acceptanceSection {
+    padding: 20px;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+.appName {
+  font-family: "Mina", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 80px;
+  color: #fa9943;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+    padding: 14px 16px;
+  }
+
+  .acceptButton {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
