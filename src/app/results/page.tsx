@@ -62,8 +62,10 @@ export default function ResultsPage() {
             Encuentra expertos más rápido, chatea directo y recibe
             recomendaciones personalizadas.
           </p>
+          <img alt="app-devices" src="/assets/images/app-devices.png"></img>
+          <img alt="app-qr" src="/assets/images/app-qr.png"/>
           <button className="w-full rounded-xl bg-[#FF9500] text-white py-2 hover:bg-[#ea9343] transition">
-            Descargar app
+            Haz click aquí o escanea el QR
           </button>
         </div>
       </aside>

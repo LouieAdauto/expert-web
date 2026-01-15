@@ -33,6 +33,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
           </Link>
         </div>
       </header>
+      
 
       {/* Content */}
       <main className="flex-1">{children}</main>
