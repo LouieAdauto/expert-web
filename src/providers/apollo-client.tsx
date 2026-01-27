@@ -28,7 +28,7 @@
 //     },
 //   },
 // });
-import { ApolloClient, InMemoryCache, ApolloProvider, TypePolicies } from '@apollo/client';
+import { ApolloClient, InMemoryCache, TypePolicies } from '@apollo/client';
 
 const typePolicies:TypePolicies = {
     Query: {
