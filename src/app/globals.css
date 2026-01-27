@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+.mina-regular {
+  font-family: "Mina", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mina-bold {
+  font-family: "Mina", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.searchpage{
+  height: 100vh;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay{
+  z-index: 20;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark .menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.menu-item {
+  @apply flex items-center gap-2 px-2 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition;
+}
