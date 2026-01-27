@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ApolloProviderWrapper from '@/providers/ApolloProviderWrapper';
+import ThemeProvider from "@/components/ThemeProvider";
+import Providers from "@/providers/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,19 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" suppressHydrationWarning>
       <head>
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap" rel="stylesheet"/>
       </head>
-      <ApolloProviderWrapper>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
-      </ApolloProviderWrapper>
     </html>
   );
 }
