@@ -8,8 +8,6 @@ import RatingStars from "@/components/RatingStars";
 import GoogleAd from "@/components/GoogleAd";
 import { SEARCH_PROFILES } from "@/apollo/queries";
 
-
-
 function ResultSkeleton() {
   return (
     <div className="animate-pulse rounded-2xl bg-white p-5 shadow-sm space-y-3">
@@ -35,9 +33,9 @@ export default function ResultsPage() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-12 gap-6">
-      {/* Left column – App promo */}
-      <aside className="col-span-12 md:col-span-3">
+    <div className="max-w-7xl mx-auto px-4 py-6 md:py-8 grid grid-cols-12 gap-4 md:gap-6">
+      {/* LEFT – App promo (hidden on mobile) */}
+      <aside className="hidden md:block md:col-span-3">
         <div className="sticky top-20 rounded-2xl bg-white p-5 shadow-sm space-y-4">
           <h2 className="font-semibold text-lg text-[#a85d00]">
             Instala la app de Expert
@@ -46,18 +44,26 @@ export default function ResultsPage() {
             Encuentra expertos más rápido, chatea directo y recibe
             recomendaciones personalizadas.
           </p>
-          <img alt="app-devices" src="/assets/images/app-devices.png"></img>
-          <img alt="app-qr" src="/assets/images/app-qr.png" />
+          <img
+            alt="app-devices"
+            src="/assets/images/app-devices.png"
+            className="w-full"
+          />
+          <img
+            alt="app-qr"
+            src="/assets/images/app-qr.png"
+            className="w-full"
+          />
           <button className="w-full rounded-xl bg-[#FF9500] text-white py-2 hover:bg-[#ea9343] transition">
             Haz click aquí o escanea el QR
           </button>
         </div>
       </aside>
 
-      {/* Center column – Results */}
+      {/* CENTER – Results */}
       <section className="col-span-12 md:col-span-6 space-y-4">
         <h1 className="text-xl font-semibold text-[#a85d00]">
-          Resultados para `${query}`
+          Resultados para `{query}`
           {data?.searchProfiles && (
             <span className="text-gray-400 font-normal">
               {" "}
@@ -75,7 +81,9 @@ export default function ResultsPage() {
         )}
 
         {error && (
-          <p className="text-red-500">Ocurrió un error al buscar resultados.</p>
+          <p className="text-red-500">
+            Ocurrió un error al buscar resultados.
+          </p>
         )}
 
         {!loading && data?.searchProfiles?.length === 0 && (
@@ -85,7 +93,7 @@ export default function ResultsPage() {
         {data?.searchProfiles?.map((profile: any) => (
           <div
             key={profile.id}
-            className="relative rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-200 dark:border-gray-800"
+            className="relative rounded-2xl bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition border border-gray-100"
           >
             {/* Badge destacado */}
             {profile.rating >= 4.5 && (
@@ -94,17 +102,17 @@ export default function ResultsPage() {
               </span>
             )}
 
-            <div className="flex items-center gap-5">
-              {/* Imagen */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
+              {/* Avatar */}
               <img
                 src={profile.image || "/avatar-placeholder.png"}
                 alt={profile.name}
-                className="h-20 w-20 rounded-2xl object-cover flex-shrink-0"
+                className="h-20 w-20 rounded-2xl object-cover mx-auto sm:mx-0 flex-shrink-0"
               />
 
               {/* Info */}
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              <div className="flex-1 space-y-2 text-center sm:text-left">
+                <h3 className="text-lg font-semibold text-gray-900">
                   {profile.name}
                 </h3>
 
@@ -112,7 +120,7 @@ export default function ResultsPage() {
                   {profile.position} · {profile.yoe} años exp.
                 </p>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
                   <RatingStars rating={profile.rating} />
                   <span className="text-sm text-gray-500">
                     {profile.rating.toFixed(1)} ({profile.reviewsCount ?? 0}{" "}
@@ -120,14 +128,14 @@ export default function ResultsPage() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 text-sm text-gray-600">
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-600">
                   <MapPin size={16} />
                   <span>
                     {profile.municipality} · {profile.countries?.[0]?.name}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 text-base text-gray-700">
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-gray-700">
                   <Briefcase size={16} />
                   <span>
                     Desde{" "}
@@ -139,11 +147,11 @@ export default function ResultsPage() {
                 </div>
               </div>
 
-              {/* CTA alineado al último renglón */}
-              <div className="ml-auto self-end">
+              {/* CTA */}
+              <div className="self-stretch sm:self-end">
                 <button
                   onClick={() => setOpenProfile(profile)}
-                  className="rounded-full bg-[#FF9500] px-7 py-3 text-base font-medium text-white hover:bg-[#ea9343] transition"
+                  className="w-full sm:w-auto rounded-full bg-[#FF9500] px-6 py-3 text-base font-medium text-white hover:bg-[#ea9343] transition"
                 >
                   Contratar
                 </button>
@@ -153,10 +161,9 @@ export default function ResultsPage() {
         ))}
       </section>
 
-      {/* Right column – Ads */}
-      <aside className="col-span-12 md:col-span-3 space-y-4">
-        {/* Ad 1 – interno */}
-        <div className="sticky top-20 ">
+      {/* RIGHT – Ads (hidden on mobile) */}
+      <aside className="hidden md:block md:col-span-3 space-y-4">
+        <div className="sticky top-20 space-y-5">
           <div className="rounded-2xl bg-white p-5 shadow-sm">
             <span className="text-[10px] tracking-wide text-gray-400 uppercase">
               Anuncio
@@ -172,20 +179,20 @@ export default function ResultsPage() {
             </a>
           </div>
 
-          {/* Google Ads */}
-          <div className="mt-5 rounded-2xl bg-white p-4 shadow-sm">
+          <div className="rounded-2xl bg-white p-4 shadow-sm">
             <GoogleAd />
           </div>
 
-          <div className="mt-5 rounded-2xl bg-white p-4 shadow-sm">
+          <div className="rounded-2xl bg-white p-4 shadow-sm">
             <GoogleAd />
           </div>
         </div>
       </aside>
+
+      {/* MODAL */}
       {openProfile && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl animate-in fade-in zoom-in">
-            {/* Header */}
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
             <h3 className="text-lg font-semibold text-gray-900">
               Contactar a {openProfile.name}
             </h3>
@@ -195,40 +202,27 @@ export default function ResultsPage() {
               en contacto contigo.
             </p>
 
-            <p className="mt-1 text-xs text-gray-500">
-              Si deseas chatear directamente con este experto crea una cuenta,
-              es fácil y rápido.
-            </p>
-
-            {/* Form */}
             <form className="mt-5 space-y-4">
               <input
                 type="text"
                 placeholder="Nombre completo"
-                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:ring-2 focus:ring-orange-200"
               />
-
               <input
                 type="email"
                 placeholder="Correo electrónico"
-                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:ring-2 focus:ring-orange-200"
               />
-
               <input
                 type="tel"
                 placeholder="Número de teléfono"
-                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200"
+                className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:ring-2 focus:ring-orange-200"
               />
-
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-[#FF9500] py-2 text-sm font-medium text-white hover:bg-[#ea9343] transition"
-              >
+              <button className="w-full rounded-xl bg-[#FF9500] py-2 text-sm font-medium text-white hover:bg-[#ea9343] transition">
                 Enviar información
               </button>
             </form>
 
-            {/* Footer */}
             <button
               onClick={() => setOpenProfile(null)}
               className="mt-4 w-full text-xs text-gray-500 hover:underline"
