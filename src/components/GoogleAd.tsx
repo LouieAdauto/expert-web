@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function GoogleAd() {
   useEffect(() => {
     try {
-      // @ts-ignore
+      // @ts-expect-error -- Ignore TS error for adsbygoogle
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {}
   }, []);
