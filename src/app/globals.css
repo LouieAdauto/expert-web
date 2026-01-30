@@ -37,7 +37,7 @@ body {
 }
 
 .searchpage{
-  height: 100vh;
+  height: 90vh;
   z-index: 10;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/image.png");
   background-repeat: no-repeat;

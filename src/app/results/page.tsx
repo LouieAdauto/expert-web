@@ -1,5 +1,8 @@
+
 import { Suspense } from "react";
 import ResultsClient from '@/components/ResultsClient'
+
+export const dynamic = "force-dynamic";
 
 export default function Page() {
   return (

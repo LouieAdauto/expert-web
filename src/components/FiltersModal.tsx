@@ -10,11 +10,13 @@ export function FiltersModal() {
 
   return (
     <>
+
       <button
         onClick={() => setOpen(true)}
-        className="ml-2 rounded-full p-2 hover:bg-white/10 transition dark:hover:bg-gray-600 dark:bg-gray-600"
+        className="cursor-pointer flex row items-center gap-2 ml-2  p-2 rounded-full p-1 hover:bg-white-gray-200 transition dark:hover:bg-gray-300 dark:bg-gray-600 bg-gray-500"
       >
-        <SlidersHorizontal size={18} />
+        <p className="dark:text-gray-400 text-white text-xs">Filtros</p>
+        <SlidersHorizontal className="center text-white dark:text-gray-400"  size={18} />
       </button>
 
       <AnimatePresence>
