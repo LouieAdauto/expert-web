@@ -159,7 +159,6 @@ export function ProfileModal({ profileId, onClose }: Props) {
                           src={
                             exp?.companyimage || "/assets/images/briefcase.webp"
                           }
-                          alt="briefcase"
                           className="h-8 w-8 rounded object-cover"
                         />
                         <div>
