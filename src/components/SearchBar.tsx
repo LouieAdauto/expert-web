@@ -12,7 +12,6 @@ const SearchContainer = styled.div`
 
 const SearchWrapper = styled.div`
   position: relative;
-  width: 50%;
   display: flex;
   align-items: center;
 `;
@@ -72,7 +71,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
-  placeholder = "Search...", 
+  placeholder = "Buscar...", 
   onSearch 
 }) => {
   const [query, setQuery] = useState('');
@@ -95,13 +94,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <SearchContainer>
-      <SearchWrapper>
+      <SearchWrapper className='xs:w-full w-150 m-5'>
         <SearchIcon />
         <SearchInput
           type="text"
           value={query}
           onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           placeholder={placeholder}
         />
         <SearchButton onClick={handleSearch}>
